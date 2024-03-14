@@ -1,0 +1,32 @@
+def is_prime(num):
+    if num < 2:
+        return False
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+def main():
+    sequence = []
+    while True:
+        try:
+            num = int(input("Enter a positive integer (enter 0 to finish): "))
+            if num < 0:
+                print("Please enter a positive integer.")
+            elif num == 0:
+                break
+            else:
+                sequence.append(num)
+        except ValueError:
+            print("Invalid input. Please enter a valid positive integer.")
+
+    prime_numbers = [num for num in sequence if is_prime(num)]
+    if prime_numbers:
+        print("Prime numbers in the sequence:", prime_numbers)
+        print("Largest prime number:", max(prime_numbers))
+        print("Total of prime numbers:", sum(prime_numbers))
+    else:
+        print("No prime numbers found in the sequence.")
+
+if __name__ == "__main__":
+    main()
