@@ -1,0 +1,24 @@
+def find_ball_pairs(expected_total):
+    basket = list(range(1, 11))
+    ball_pairs = []
+
+    for i in range(len(basket)):
+        for j in range(i + 1, len(basket)):
+            if basket[i] + basket[j] == expected_total:
+                ball_pairs.append((basket[i], basket[j]))
+
+    return ball_pairs
+
+def main():
+    expected_total = int(input("Enter the expected total: "))
+    ball_pairs = find_ball_pairs(expected_total)
+
+    if ball_pairs:
+        print("Ball pairs whose sum equals the expected total:")
+        for pair in ball_pairs:
+            print(pair)
+    else:
+        print("No pairs found whose sum equals the expected total.")
+
+if __name__ == "__main__":
+    main()
